@@ -1,8 +1,14 @@
 import click
+import modules.user_module as UM
 
 @click.command()
-def main():
-    click.echo("This is a CLI built with Click")
+@click.argument('command')
+@click.option('--id', '-i')
+@click.option('--password', '-p')
+def main(command, id, password):
+    if command == 'user':
+        click.echo(UM.get_user(id, password))
 
 if __name__ == "__main__":
     main()
+
