@@ -1,22 +1,13 @@
 # -*- coding: utf-8 -*-
 
-import support.core_authenticator as CA
+import common as Common
 from bs4 import BeautifulSoup
 import json
 
-def find_by_title(type, title, context):
-    title = context.find(text=title)
-    value = title.findNext(type).text
-    return value
-
-def get_user(id, password):
-    br = CA.get_context(id, password)
-    raw_text = br.response().read()
-    context_page = BeautifulSoup(raw_text, 'html.parser')
-    
+def get_user(context_page):
     data = {}
     
-    data['id'] = find_by_title('span', 'ID:', context_page)
+    data['id'] = Common.find_by_title('span', 'ID:', context_page)
     data['name'] = context_page.find('span', {'class': 'aligh-right color-white'}).text
     data['major'] = find_by_title('span', 'Programa', context_page)
     data['academic_condition'] = find_by_title('span', 'Condición Académica', context_page)

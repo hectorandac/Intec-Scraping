@@ -4,7 +4,7 @@ This is a non official library that allows an app to consume the data from INTEC
 This library allows a developer to get data from INTEC Databases.
 
 ## Features
-- [ ] Student information.
+- [x] Student information.
 - [ ] Student time table.
 - [ ] Available courses.
 - [ ] Courses time table.
