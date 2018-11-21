@@ -9,7 +9,6 @@ def find_by_title(type, title, context):
     value = title.findNext(type).text
     return value
 
-
 def get_user(id, password):
     br = CA.get_context(id, password)
     raw_text = br.response().read()
@@ -28,6 +27,6 @@ def get_user(id, password):
     data['validated_credits'] = find_by_title('span', 'Créditos Convalidados', context_page)
     data['aproved_credits'] = find_by_title('span', 'Créditos Aprobados', context_page)
     data['quarter_count'] = find_by_title('span', 'Trimestres Cursados', context_page)
-
+    data['adviser'] = context_page.find('a', {'class': 'consejero-text'}).findChild().text
     
     return json.dumps(data)
