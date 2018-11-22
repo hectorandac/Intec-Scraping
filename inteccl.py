@@ -1,8 +1,8 @@
 import click
 import modules.user_module as UM
-from bs4 import BeautifulSoup
 import modules.available_courses as AC
 import modules.support.core_authenticator as CA
+from bs4 import BeautifulSoup
 
 @click.command()
 @click.argument('command')
@@ -20,4 +20,3 @@ def main(command, id, password):
 
 if __name__ == "__main__":
     main()
-
