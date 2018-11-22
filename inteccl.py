@@ -1,7 +1,7 @@
 import click
 import modules.user_module as UM
 import modules.selected_subjects as SS
-import modules.available_courses as AC
+import modules.courses_module as CM
 import modules.support.core_authenticator as CA
 from bs4 import BeautifulSoup
 
@@ -21,7 +21,7 @@ def main(command, arg_2, id, password):
         else:
             click.echo(UM.get_user(context_page))
     elif command == 'courses':
-        click.echo(AC.get_available_courses(context_page))
+        click.echo(CM.get_available_courses(br))
     elif command == 'subjects':
         click.echo(SS.get_selected_subjects(context_page))
 
