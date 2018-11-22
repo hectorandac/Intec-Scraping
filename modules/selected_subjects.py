@@ -2,7 +2,6 @@
 import common as Common
 from bs4 import BeautifulSoup
 import json
-from models import Subject
 
 data = {}
 
