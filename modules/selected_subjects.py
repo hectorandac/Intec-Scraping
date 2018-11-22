@@ -8,14 +8,14 @@ data = {}
 
 def get_selected_subjects(context_page):
     actual_table = context_page.find('table', {'id': 'tblActuales'})
-    rows = actual_table.find_all('tr')
+    rows = actual_table.find_all('tr') # all rows
 
     row_number = -1
     for r in rows:
         c = 1
         subject = {}
         schedule = {}
-        for td in r.find_all('td'):
+        for td in r.find_all('td'): # all columns (td) by row (r)
             value = td.text
             if value:
                 if c == 1:
@@ -45,7 +45,7 @@ def get_selected_subjects(context_page):
                 elif c == 13:
                     subject['evaluated'] = value
             c = c + 1
-        if row_number > -1:
+        if row_number > -1: # Avoiding header row to save into data dictionary
             subject['schedule'] = schedule
             data[row_number] = subject
         row_number = row_number + 1
