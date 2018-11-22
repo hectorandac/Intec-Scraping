@@ -5,12 +5,8 @@ This library allows a developer to get data from INTEC Databases.
 
 ## Features
 - [x] Student information.
-<<<<<<< HEAD
 - [x] Get selected subjects in current trimester.
-- [ ] Student time table.
-=======
 - [x] Student time table.
->>>>>>> c9a80196838c479133633e7245dc0fe10eb8be7e
 - [ ] Available courses.
 - [ ] Courses time table.
 - [ ] Teachers time table.
