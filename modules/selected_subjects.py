@@ -2,9 +2,8 @@
 import common as Common
 from bs4 import BeautifulSoup
 import json
-from models import Subject
 
-data = {}
+data = []
 
 def get_selected_subjects(context_page):
     actual_table = context_page.find('table', {'id': 'tblActuales'})
@@ -47,7 +46,7 @@ def get_selected_subjects(context_page):
             c = c + 1
         if row_number > -1: # Avoiding header row to save into data dictionary
             subject['schedule'] = schedule
-            data[row_number] = subject
+            data.append(subject)
         row_number = row_number + 1
     
     return json.dumps(data)

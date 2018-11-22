@@ -24,3 +24,16 @@ def blob_to_file(blob):
 def ensure_dir(file_path):
     if not os.path.exists(file_path):
         os.mkdir(file_path)
+
+
+def extract_limits(raw_day):
+    day = {}
+    t = raw_day.split('/')
+    if len(t) == 2:
+        day['start'] = t[0]
+        day['end'] = t[1]
+        return day
+
+    day['start'] = 0
+    day['end'] = 0
+    return day

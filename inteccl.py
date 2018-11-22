@@ -7,15 +7,19 @@ from bs4 import BeautifulSoup
 
 @click.command()
 @click.argument('command')
+@click.argument('arg_2', default = 'false')
 @click.option('--id', '-i')
 @click.option('--password', '-p')
-def main(command, id, password):
+def main(command, arg_2, id, password):
     br = CA.get_context(id, password)
     raw_text = br.response().read()
     context_page = BeautifulSoup(raw_text, 'html.parser')
 
     if command == 'user':
-        click.echo(UM.get_user(context_page))
+        if arg_2 == 'timetable':
+            click.echo(UM.get_timetable(context_page))
+        else:
+            click.echo(UM.get_user(context_page))
     elif command == 'courses':
         click.echo(AC.get_available_courses(context_page))
     elif command == 'subjects':
