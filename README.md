@@ -5,7 +5,7 @@ This library allows a developer to get data from INTEC Databases.
 
 ## Features
 - [x] Student information.
-- [ ] Student time table.
+- [x] Student time table.
 - [ ] Available courses.
 - [ ] Courses time table.
 - [ ] Teachers time table.
