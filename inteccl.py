@@ -11,7 +11,8 @@ from bs4 import BeautifulSoup
 @click.option('--id', '-i')
 @click.option('--password', '-p')
 @click.option('--course', '-c', default = 'false')
-def main(command, arg_2, id, password, course):
+@click.option('--name', '-n', default = 'false')
+def main(command, arg_2, id, password, course, name):
     br = CA.get_context(id, password)
     raw_text = br.response().read()
     context_page = BeautifulSoup(raw_text, 'html.parser')
@@ -23,7 +24,9 @@ def main(command, arg_2, id, password, course):
             click.echo(UM.get_user(context_page))
     elif command == 'courses':
         if course != 'false':
-            click.echo(CM.get_course_timetable(br, course))
+            click.echo(CM.get_course_timetable_by_id(br, course))
+        elif name != 'false':
+            click.echo(CM.get_courses_timetable_by_name(br, name))
         else:
             click.echo(CM.get_available_courses(br))
     elif command == 'subjects':
