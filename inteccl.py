@@ -10,7 +10,8 @@ from bs4 import BeautifulSoup
 @click.argument('arg_2', default = 'false')
 @click.option('--id', '-i')
 @click.option('--password', '-p')
-def main(command, arg_2, id, password):
+@click.option('--course', '-c', default = 'false')
+def main(command, arg_2, id, password, course):
     br = CA.get_context(id, password)
     raw_text = br.response().read()
     context_page = BeautifulSoup(raw_text, 'html.parser')
@@ -21,7 +22,10 @@ def main(command, arg_2, id, password):
         else:
             click.echo(UM.get_user(context_page))
     elif command == 'courses':
-        click.echo(CM.get_available_courses(br))
+        if course != 'false':
+            click.echo(CM.get_course_timetable(br, course))
+        else:
+            click.echo(CM.get_available_courses(br))
     elif command == 'subjects':
         click.echo(SS.get_selected_subjects(context_page))
 
