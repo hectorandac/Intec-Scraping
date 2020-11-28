@@ -1,4 +1,4 @@
-# IntecCL | Intec scrapping library
+# IntecCL | Intec scraping library
 
 The purpose of this project is to serve as a client for the Intec University students to scrape their information out of the University Platform in a JSON format and use them in their oun applications.
 
